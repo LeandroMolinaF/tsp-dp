@@ -6,8 +6,8 @@ import time
 # Leer ciudades y coordenadas desde CSV
 def leer_ciudades_csv(ruta_csv):
     df = pd.read_csv(ruta_csv)
-    ciudades = df['ciudad'].tolist()
     coords = df[['x', 'y']].values
+    ciudades = df['ciudad'].tolist()
     return ciudades, coords
 
 # Calcular matriz de distancias a partir de las coordenadas

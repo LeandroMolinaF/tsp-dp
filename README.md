@@ -9,7 +9,7 @@ Este repositorio contiene un script en Python para resolver el Problema del Vend
 1. **Lectura de datos**: carga un CSV con columnas `x`, `y`, `ciudad`.
 2. **Cálculo de distancias**: construye la matriz de distancias euclídeas entre todas las ciudades.
 3. **Algoritmo TSP**: aplica Held‑Karp (bitmask + memoización) para obtener el costo mínimo y la ruta óptima.
-4. **Salida**: muestra en consola el número de ciudades, costo del camino optimo, secuencia de ciudades y tiempo de ejecución.
+4. **Salida**: muestra en consola el número de ciudades, costo del camino óptimo, secuencia de ciudades y tiempo de ejecución.
 
 ---
 
@@ -45,26 +45,22 @@ pip install pandas numpy
 
 1. Clona el repositorio:
 
-   ```bash
-   git clone https://github.com/LeandroMolinaF/tsp-dp.git
-   ```
-
-
-
+```bash
+git clone https://github.com/LeandroMolinaF/tsp-dp.git
+```
 
 2. Coloca tu archivo CSV (formato: `x,y,ciudad`) en la carpeta del proyecto.
 
 3. Ejecuta el script:
 
-    ```bash
-python tsp_csv_dp.py
+```bash
+python tsp-dp-path.py
 ```
 
 4. Cuando se solicite, ingresa la ruta al CSV
 
 ```
 Ruta al CSV de ciudades: ciudades_20.csv
-
 ```
 
 5. Observa los resultados en pantalla:
@@ -72,7 +68,7 @@ Ruta al CSV de ciudades: ciudades_20.csv
 ```plaintext
 ---- TSP ----
 Número de ciudades: 20
-Costo mínimo del tour: 123.45
+Costo mínimo: 123.45
 Camino óptimo: Ciudad1 -> Ciudad5 -> ... -> Ciudad1
 Tiempo de ejecución: 0.012345 segundos
 ```
@@ -82,7 +78,7 @@ Tiempo de ejecución: 0.012345 segundos
 ## Formato del CSV de Entrada
 
 * La primera fila debe ser el encabezado: `x,y,ciudad`.
-* Cada fila contiene el nombre de la ciudad y sus coordenadas en `float`.
+* Cada fila contiene el nombre de la ciudad y sus coordenadas de tipo `float`.
 
 Ejemplo mínimo:
 
@@ -114,7 +110,7 @@ x,y,ciudad
 
     * `dp[mask][pos]`: costo mínimo para visitar `mask` acabando en `pos`.
     * `parent[mask][pos]`: siguiente ciudad en el camino óptimo.
-  * Retorna `(costo_mínimo, ruta_indices)`.
+  * Retorna `(costo_mínimo, ruta)`.
 
 * `main()`:
 
